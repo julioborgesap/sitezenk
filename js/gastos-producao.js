@@ -14,7 +14,7 @@ window.app.gastosProducao = (function () {
         let html = `
             <div class="gastos-resumo">
                 <div class="grafico-gastos" id="grafico-pizza-gastos">
-                    <h4>Gastos por Categoria (Total)</h4>
+                    <h4>Gastos por Categoria (Total = <span id="total-gastos-geral">R$ 0,00</span>)</h4>
                     <canvas id="pizza-gastos"></canvas>
                 </div>
                 <div class="grafico-gastos" id="grafico-barra-gastos">
@@ -73,6 +73,11 @@ window.app.gastosProducao = (function () {
             </div>
         `;
         container.innerHTML = html;
+
+        // Calcular total geral de gastos e exibir no span
+        const totalGeral = dados.gastosProducao.reduce((soma, g) => soma + g.valorTotal, 0);
+        const spanTotal = document.getElementById('total-gastos-geral');
+        if (spanTotal) spanTotal.innerText = window.app.utils.formatarMoeda(totalGeral);
 
         // Preencher lista de gastos
         carregarListaGastos();
