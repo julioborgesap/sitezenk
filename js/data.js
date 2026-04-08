@@ -9,26 +9,28 @@ window.app = window.app || {};
 const dadosPadrao = {
     versao: "1.0",
     categorias: [
-        { id: 1, nome: "Camisas" },
-        { id: 2, nome: "Camisetas" },
+        { id: 1, nome: "Camisetas" },
+        { id: 2, nome: "Camisas" },
         { id: 3, nome: "Shorts" },
-        { id: 4, nome: "Regatas" }
+        { id: 4, nome: "Regatas" } 
     ],
     subcategorias: [
-        { id: 1, nome: "Gola Polo", categoriaId: 1 },
-        { id: 2, nome: "Manga Longa", categoriaId: 1 },
-        { id: 3, nome: "Peruana", categoriaId: 2 },
-        { id: 4, nome: "100% Algodão", categoriaId: 2 },
-        { id: 5, nome: "Alfaiataria", categoriaId: 3 },
-        { id: 6, nome: "Confort", categoriaId: 3 },
-        { id: 7, nome: "Regata Básica", categoriaId: 4 }
+        { id: 1, nome: "Peruana", categoriaId: 1 },
+        { id: 2, nome: "100% Algodão", categoriaId: 1 },
+        { id: 3, nome: "Canelada PV/PA", categoriaId: 2 },
+        { id: 4, nome: "Alfaiataria", categoriaId: 3 },
+        { id: 5, nome: "Confort", categoriaId: 3 },
+        { id: 6, nome: "Canelada PA", categoriaId: 4 }
     ],
     cores: [
-        { id: 1, nome: "Preto" },
-        { id: 2, nome: "Branco" },
-        { id: 3, nome: "Azul" },
-        { id: 4, nome: "Vermelho" },
-        { id: 5, nome: "Verde" }
+        { id: 1, nome: "Branco" },
+        { id: 2, nome: "Preto" },
+        { id: 3, nome: "Safari" },
+        { id: 4, nome: "Azul Marinho" },
+        { id: 5, nome: "Verde Musgo" },
+        { id: 6, nome: "Vinho" },
+        { id: 7, nome: "Rosa" },
+        { id: 8, nome: "Caramelo" }
     ],
     tamanhos: [
         { id: 1, nome: "P", tipo: "letra" },
@@ -45,25 +47,33 @@ const dadosPadrao = {
     ],
     tiposGasto: [
         { id: 1, nome: "Tecido" },
-        { id: 2, nome: "Botão" },
-        { id: 3, nome: "Zíper" },
-        { id: 4, nome: "Linha" },
-        { id: 5, nome: "Etiqueta" },
-        { id: 6, nome: "Bordado" },
-        { id: 7, nome: "Ribana" },
-        { id: 8, nome: "Costureira" },
-        { id: 9, nome: "Embalagem" }
+        { id: 2, nome: "Bordado" },
+        { id: 3, nome: "Ribana" },
+        { id: 4, nome: "Gola Polo + V" },
+        { id: 5, nome: "Linha" },
+        { id: 6, nome: "Botão" },
+        { id: 7, nome: "Zíper" },
+        { id: 8, nome: "Silk Tamanho (nuca, interior)" },
+        { id: 9, nome: "Silk ZenK (nuca, exterior)" },
+        { id: 10, nome: "Etiqueta Tamanho" },
+        { id: 11, nome: "Etiqueta ZK (couro)" },
+        { id: 12, nome: "Etiqueta Papel Couchê 300g" },
+        { id: 13, nome: "Costureira" },
+        { id: 14, nome: "Papel seda + cera" },
+        { id: 15, nome: "ZipLock" },
+        { id: 16, nome: "Frete" },
+        { id: 17, nome: "Outros" }
     ],
     motivosSaida: [
         { id: 1, nome: "Venda" },
-        { id: 2, nome: "Perda" },
-        { id: 3, nome: "Amostra" }
+        { id: 2, nome: "Amostra/Perda" },
+        { id: 3, nome: "Presente" }
     ],
     produtos: [], // será preenchido com exemplo
     movimentacoes: [], // histórico de entrada/saída
     gastosProducao: [],
     configuracoes: {
-        estoqueMinimoPadrao: 5,
+        estoqueMinimoPadrao: 4,
         // outras configurações futuras
     }
 };
@@ -73,7 +83,7 @@ function inicializarProdutosExemplo() {
     // Exemplo: Camisa Gola Polo
     const produto1 = {
         id: Date.now() + 1,
-        nome: "Camisa Gola Polo",
+        nome: "Camiseta Gola Polo",
         categoriaId: 1,
         subcategoriaId: 1,
         precoVenda: 89.90,
@@ -86,9 +96,9 @@ function inicializarProdutosExemplo() {
     };
     const produto2 = {
         id: Date.now() + 2,
-        nome: "Camiseta Peruana",
-        categoriaId: 2,
-        subcategoriaId: 3,
+        nome: "Camiseta Essential",
+        categoriaId: 1,
+        subcategoriaId: 2,
         precoVenda: 59.90,
         custoUnitario: 28.50,
         estoqueMinimo: 5,

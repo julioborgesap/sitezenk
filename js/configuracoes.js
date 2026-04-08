@@ -1,7 +1,7 @@
 // ==================== configuracoes.js ====================
 // Configurações do sistema: categorias, subcategorias, cores, tamanhos, tipos de gasto, motivos, backup
 
-window.app.configuracoes = (function() {
+window.app.configuracoes = (function () {
     function renderizarConfiguracoes() {
         const container = document.getElementById('configuracoes');
         if (!container) return;
@@ -314,14 +314,14 @@ window.app.configuracoes = (function() {
         }
         if (confirm(`Remover este ${tipo}?`)) {
             dados[tipo === 'categoria' ? 'categorias' :
-                  tipo === 'subcategoria' ? 'subcategorias' :
-                  tipo === 'cor' ? 'cores' :
-                  tipo === 'tamanho' ? 'tamanhos' :
-                  tipo === 'tipoGasto' ? 'tiposGasto' : 'motivosSaida'] = dados[tipo === 'categoria' ? 'categorias' :
-                  tipo === 'subcategoria' ? 'subcategorias' :
-                  tipo === 'cor' ? 'cores' :
-                  tipo === 'tamanho' ? 'tamanhos' :
-                  tipo === 'tipoGasto' ? 'tiposGasto' : 'motivosSaida'].filter(i => i.id !== id);
+                tipo === 'subcategoria' ? 'subcategorias' :
+                    tipo === 'cor' ? 'cores' :
+                        tipo === 'tamanho' ? 'tamanhos' :
+                            tipo === 'tipoGasto' ? 'tiposGasto' : 'motivosSaida'] = dados[tipo === 'categoria' ? 'categorias' :
+                                tipo === 'subcategoria' ? 'subcategorias' :
+                                    tipo === 'cor' ? 'cores' :
+                                        tipo === 'tamanho' ? 'tamanhos' :
+                                            tipo === 'tipoGasto' ? 'tiposGasto' : 'motivosSaida'].filter(i => i.id !== id);
             window.app.salvarDados(dados);
             carregarListas();
             utils.mostrarNotificacao('Item removido.');
@@ -331,11 +331,11 @@ window.app.configuracoes = (function() {
     function exportarBackup() {
         const dados = window.app.dados;
         const dataStr = JSON.stringify(dados, null, 2);
-        const blob = new Blob([dataStr], {type: 'application/json'});
+        const blob = new Blob([dataStr], { type: 'application/json' });
         const url = URL.createObjectURL(blob);
         const a = document.createElement('a');
         a.href = url;
-        a.download = `backup_estoque_${new Date().toISOString().slice(0,19)}.json`;
+        a.download = `backup_estoque_${new Date().toISOString().slice(0, 19)}.json`;
         a.click();
         URL.revokeObjectURL(url);
     }
@@ -367,26 +367,28 @@ window.app.configuracoes = (function() {
             window.app.dados = {
                 versao: "1.0",
                 categorias: [
-                    { id: 1, nome: "Camisas" },
-                    { id: 2, nome: "Camisetas" },
+                    { id: 1, nome: "Camisetas" },
+                    { id: 2, nome: "Camisas" },
                     { id: 3, nome: "Shorts" },
                     { id: 4, nome: "Regatas" }
                 ],
                 subcategorias: [
-                    { id: 1, nome: "Gola Polo", categoriaId: 1 },
-                    { id: 2, nome: "Manga Longa", categoriaId: 1 },
-                    { id: 3, nome: "Peruana", categoriaId: 2 },
-                    { id: 4, nome: "100% Algodão", categoriaId: 2 },
-                    { id: 5, nome: "Alfaiataria", categoriaId: 3 },
-                    { id: 6, nome: "Confort", categoriaId: 3 },
-                    { id: 7, nome: "Regata Básica", categoriaId: 4 }
+                    { id: 1, nome: "Peruana", categoriaId: 1 },
+                    { id: 2, nome: "100% Algodão", categoriaId: 1 },
+                    { id: 3, nome: "Canelada PV/PA", categoriaId: 2 },
+                    { id: 4, nome: "Alfaiataria", categoriaId: 3 },
+                    { id: 5, nome: "Confort", categoriaId: 3 },
+                    { id: 6, nome: "Canelada PA", categoriaId: 4 }
                 ],
                 cores: [
-                    { id: 1, nome: "Preto" },
-                    { id: 2, nome: "Branco" },
-                    { id: 3, nome: "Azul" },
-                    { id: 4, nome: "Vermelho" },
-                    { id: 5, nome: "Verde" }
+                    { id: 1, nome: "Branco" },
+                    { id: 2, nome: "Preto" },
+                    { id: 3, nome: "Safari" },
+                    { id: 4, nome: "Azul Marinho" },
+                    { id: 5, nome: "Verde Musgo" },
+                    { id: 6, nome: "Vinho" },
+                    { id: 7, nome: "Rosa" },
+                    { id: 8, nome: "Caramelo" }
                 ],
                 tamanhos: [
                     { id: 1, nome: "P", tipo: "letra" },
@@ -403,54 +405,63 @@ window.app.configuracoes = (function() {
                 ],
                 tiposGasto: [
                     { id: 1, nome: "Tecido" },
-                    { id: 2, nome: "Botão" },
-                    { id: 3, nome: "Zíper" },
-                    { id: 4, nome: "Linha" },
-                    { id: 5, nome: "Etiqueta" },
-                    { id: 6, nome: "Bordado" },
-                    { id: 7, nome: "Ribana" },
-                    { id: 8, nome: "Costureira" },
-                    { id: 9, nome: "Embalagem" }
+                    { id: 2, nome: "Bordado" },
+                    { id: 3, nome: "Ribana" },
+                    { id: 4, nome: "Gola Polo + V" },
+                    { id: 5, nome: "Linha" },
+                    { id: 6, nome: "Botão" },
+                    { id: 7, nome: "Zíper" },
+                    { id: 8, nome: "Silk Tamanho (nuca, interior)" },
+                    { id: 9, nome: "Silk ZenK (nuca, exterior)" },
+                    { id: 10, nome: "Etiqueta Tamanho" },
+                    { id: 11, nome: "Etiqueta ZK (couro)" },
+                    { id: 12, nome: "Etiqueta Papel Couchê 300g" },
+                    { id: 13, nome: "Costureira" },
+                    { id: 14, nome: "Papel seda + cera" },
+                    { id: 15, nome: "ZipLock" },
+                    { id: 16, nome: "Frete" },
+                    { id: 17, nome: "Outros" }
                 ],
                 motivosSaida: [
                     { id: 1, nome: "Venda" },
-                    { id: 2, nome: "Perda" },
-                    { id: 3, nome: "Amostra" }
+                    { id: 2, nome: "Amostra/Perda" },
+                    { id: 3, nome: "Presente" }
                 ],
-                produtos: [],
-                movimentacoes: [],
+                produtos: [], // será preenchido com exemplo
+                movimentacoes: [], // histórico de entrada/saída
                 gastosProducao: [],
                 configuracoes: {
-                    estoqueMinimoPadrao: 5
+                    estoqueMinimoPadrao: 4,
+                    // outras configurações futuras
                 }
             };
             // Adicionar produtos de exemplo
             const utils = window.app.utils;
             const produto1 = {
-                id: utils.gerarId(),
-                nome: "Camisa Gola Polo",
+                id: Date.now() + 1,
+                nome: "Camiseta Gola Polo",
                 categoriaId: 1,
                 subcategoriaId: 1,
                 precoVenda: 89.90,
                 custoUnitario: 45.00,
                 estoqueMinimo: 3,
                 variacoes: [
-                    { id: utils.gerarId(), corId: 1, tamanhoId: 2, quantidade: 10 },
-                    { id: utils.gerarId(), corId: 2, tamanhoId: 2, quantidade: 8 }
+                    { id: Date.now() + 101, corId: 1, tamanhoId: 2, quantidade: 10 },
+                    { id: Date.now() + 102, corId: 2, tamanhoId: 2, quantidade: 8 }
                 ]
             };
             const produto2 = {
-                id: utils.gerarId(),
-                nome: "Camiseta Peruana",
-                categoriaId: 2,
-                subcategoriaId: 3,
+                id: Date.now() + 2,
+                nome: "Camiseta Essential",
+                categoriaId: 1,
+                subcategoriaId: 2,
                 precoVenda: 59.90,
                 custoUnitario: 28.50,
                 estoqueMinimo: 5,
                 variacoes: [
-                    { id: utils.gerarId(), corId: 1, tamanhoId: 1, quantidade: 15 },
-                    { id: utils.gerarId(), corId: 1, tamanhoId: 2, quantidade: 20 },
-                    { id: utils.gerarId(), corId: 3, tamanhoId: 2, quantidade: 12 }
+                    { id: Date.now() + 201, corId: 1, tamanhoId: 1, quantidade: 15 },
+                    { id: Date.now() + 202, corId: 1, tamanhoId: 2, quantidade: 20 },
+                    { id: Date.now() + 203, corId: 3, tamanhoId: 2, quantidade: 12 }
                 ]
             };
             window.app.dados.produtos = [produto1, produto2];
