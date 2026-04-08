@@ -1,0 +1,90 @@
+/* Layout duas colunas para entrada/saída */
+.controle-duas-colunas {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+@media (max-width: 768px) {
+    .controle-duas-colunas {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Formulários de entrada/saída */
+.form-estoque {
+    background: var(--branco);
+    border-radius: var(--borda-radius);
+    padding: 20px;
+    box-shadow: var(--sombra);
+}
+
+.form-estoque h3 {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.form-estoque .grupo-form {
+    margin-bottom: 15px;
+}
+
+.form-estoque label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+.form-estoque input, .form-estoque select, .form-estoque textarea {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid var(--cinza-medio);
+    border-radius: var(--borda-radius);
+}
+
+/* Carrinho de venda */
+.carrinho-itens {
+    margin-top: 20px;
+    border-top: 1px solid var(--cinza-medio);
+    padding-top: 15px;
+}
+
+.carrinho-itens h4 {
+    margin-bottom: 10px;
+}
+
+.tabela-carrinho {
+    width: 100%;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+}
+
+.total-carrinho {
+    text-align: right;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+/* Histórico */
+.filtro-periodo {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.historico-tabela {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+/* Estatísticas (gráficos) */
+.estatisticas-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+}

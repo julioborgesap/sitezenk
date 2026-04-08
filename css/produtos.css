@@ -1,0 +1,116 @@
+/* Produtos */
+.barra-ferramentas {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.filtro-produtos {
+    display: flex;
+    gap: 10px;
+}
+
+.filtro-produtos input,
+.filtro-produtos select {
+    padding: 8px 12px;
+    border: 1px solid var(--cinza-medio);
+    border-radius: var(--borda-radius);
+    font-size: 0.9rem;
+}
+
+/* Ações na tabela */
+.acao-botao {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.1rem;
+    margin: 0 5px;
+    transition: var(--transicao);
+    padding: 4px 6px;
+    border-radius: 4px;
+}
+
+.acao-botao.ver {
+    color: var(--azul-principal);
+}
+
+.acao-botao.editar {
+    color: var(--amarelo);
+}
+
+.acao-botao.excluir {
+    color: var(--vermelho);
+}
+
+.acao-botao:hover {
+    transform: scale(1.1);
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* Formulário de produto (modal) */
+.form-produto .grupo-form {
+    margin-bottom: 15px;
+}
+
+.form-produto label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+.form-produto input,
+.form-produto select,
+.form-produto textarea {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid var(--cinza-medio);
+    border-radius: var(--borda-radius);
+    font-size: 1rem;
+}
+
+.form-produto .variacoes-area {
+    margin-top: 20px;
+    border-top: 1px solid var(--cinza-medio);
+    padding-top: 15px;
+}
+
+.variacao-item {
+    background-color: var(--cinza-claro);
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: var(--borda-radius);
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.variacao-item select,
+.variacao-item input {
+    flex: 1;
+    min-width: 100px;
+}
+
+.btn-remover-variacao {
+    background-color: var(--vermelho);
+    color: var(--branco);
+    border: none;
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.btn-adicionar-variacao {
+    margin-top: 10px;
+    background-color: var(--azul-claro);
+    color: var(--branco);
+    border: none;
+    padding: 6px 12px;
+    border-radius: var(--borda-radius);
+    cursor: pointer;
+}
